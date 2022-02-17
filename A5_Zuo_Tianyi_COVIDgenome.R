@@ -1,3 +1,7 @@
+### GitHub username: Lydia12138
+### Date: 2022-01-26 Repo:https://github.com/Lydia12138/Rentrez
+
+
 library(rentrez) # load the rentrez packages
 
 # According to the NCBI Id we have to download data from NCBI databases 
