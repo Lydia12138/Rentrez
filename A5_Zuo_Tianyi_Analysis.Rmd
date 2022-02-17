@@ -1,0 +1,90 @@
+---
+title: "Analysis"
+author: "Tianyi Zuo"
+date: "2022/2/16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## load the packages
+```{r}
+library(dplyr)
+```
+
+
+## Import the Sequences.csv file
+```{r}
+SeqData<-read.csv("output/Sequences.csv")#loading the data
+str(SeqData) #check the structure of the Data
+class(SeqData)
+dim(SeqData)
+```
+
+
+
+## Count the number of each base pair (A, T, C and G), in each of the three sequences. 
+```{r}
+# extract the certain sequence from table
+seq1 <- strsplit(SeqData$Sequence,"")[[1]]
+seq2 <- strsplit(SeqData$Sequence,"")[[2]]
+seq3 <- strsplit(SeqData$Sequence,"")[[3]]
+
+
+# Each base pair content in sequence 1
+A1_number <- length(grep("A",seq1))
+T1_number <- length(grep("T",seq1))
+C1_number <- length(grep("C",seq1))
+G1_number <- length(grep("G",seq1))
+
+# Each base pair content in sequence 2
+A2_number <- length(grep("A",seq2))
+T2_number <- length(grep("T",seq2))
+C2_number <- length(grep("C",seq2))
+G2_number <- length(grep("G",seq2))
+
+# Each base pair content in sequence 3
+A3_number <- length(grep("A",seq3))
+T3_number <- length(grep("T",seq3))
+C3_number <- length(grep("C",seq3))
+G3_number <- length(grep("G",seq3))
+```
+
+
+## Print out each sequence
+```{r}
+print (unlist(SeqData$Sequence))
+```
+
+## Create a table with number of each nucleotide for each of the three sequences
+```{r}
+Sequences_Id <- c("HQ433692.1","HQ433694.1","HQ433691.1")
+A_content <- c(A1_number, A2_number, A3_number)
+T_content <- c(T1_number, T2_number, T3_number)
+C_content <- c(C1_number, C2_number, C3_number)
+G_content <- c(G1_number, G2_number, G3_number)
+
+SumTable<-data.frame(Sequences_Id, A_content, T_content, C_content, G_content, Total = nchar(SeqData$Sequence))
+print(SumTable)
+```
+
+
+## Upload Image of a bacteria from the internet, and a link to the Wikipedia page about Borrelia burgdorferi
+
+![Lyme Disease Bacteria : Borrelia burgdorferi, Image courtesy of Emily M. Eng](./input/borrelia-burgdorferi.png)
+
+
+[link to the Wikipedia page about Borrelia burgdorferi](https://en.wikipedia.org/wiki/Borrelia_burgdorferi)
+
+
+## Create a final table showing GC content for each sequence ID
+```{r}
+# Calculate GC Content 
+FinalTable <- transmute(SumTable, Sequences_Id, GC_Content =  paste(round((C_content +G_content)/Total *100, 2), "%"))
+print (FinalTable)
+```
+
+
+
