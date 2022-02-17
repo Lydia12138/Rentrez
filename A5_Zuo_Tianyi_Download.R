@@ -1,3 +1,6 @@
+### GitHub username: Lydia12138
+### Date: 2022-01-26 Repo:https://github.com/Lydia12138/Rentrez
+
 ncbi_ids <- c("HQ433692.1","HQ433694.1","HQ433691.1") # create a vector with NCBI Id.
 
 library(rentrez) # load the rentrez packages
