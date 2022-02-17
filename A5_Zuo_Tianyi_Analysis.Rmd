@@ -5,6 +5,9 @@ date: "2022/2/16"
 output: html_document
 ---
 
+### GitHub username: Lydia12138
+### Date: 2022-01-26 Repo:https://github.com/Lydia12138/Rentrez
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -73,7 +76,7 @@ print(SumTable)
 
 ## Upload Image of a bacteria from the internet, and a link to the Wikipedia page about Borrelia burgdorferi
 
-![Lyme Disease Bacteria : Borrelia burgdorferi, Image courtesy of Emily M. Eng](./input/borrelia-burgdorferi.png)
+![Lyme Disease Bacteria : Borrelia burgdorferi, Image courtesy of Emily M. Eng](./borrelia-burgdorferi.png)
 
 
 [link to the Wikipedia page about Borrelia burgdorferi](https://en.wikipedia.org/wiki/Borrelia_burgdorferi)
